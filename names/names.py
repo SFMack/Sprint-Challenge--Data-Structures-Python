@@ -27,26 +27,39 @@ duplicates = []  # Return the list of duplicates in this data structure
 # use the first name from 'names_1' 
 # as the root node's value to start
 # the tree
-root = BSTNode(names_1[0])
+
+# root = BSTNode(names_1[0])
 
 # branch out the tree
 # create a node from each name in the 'names_1' list
-for name in names_1:
-    root.insert(name)
+
+# for name in names_1:
+#     root.insert(name)
 
 # compare the two lists
 # add the names the name 
 # of duplicates
-for name_ in names_2:
-    if root.contains(name_):
-        duplicates.append(name_) 
+
+# for name_ in names_2:
+#     if root.contains(name_):
+#         duplicates.append(name_) 
+
+# ---------- Stretch Goal -----------
+# Python has built-in tools that allow for a very efficient approach to this problem
+# What's the best time you can accomplish?  Thare are no restrictions on techniques or data
+# structures, but you may not import any additional libraries that you did not write yourself.
+
+# convert lists to a set
+setList1 = set(names_1)
+
+# capture duplicate names
+intersection = setList1.intersection(names_2)
+
+# add the 'intersections' to 'duplicates'
+duplicates = intersection 
 
 
 end_time = time.time()
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
 
-# ---------- Stretch Goal -----------
-# Python has built-in tools that allow for a very efficient approach to this problem
-# What's the best time you can accomplish?  Thare are no restrictions on techniques or data
-# structures, but you may not import any additional libraries that you did not write yourself.
